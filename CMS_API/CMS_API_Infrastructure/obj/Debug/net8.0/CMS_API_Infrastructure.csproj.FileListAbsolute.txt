@@ -1,0 +1,17 @@
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\bin\Debug\net8.0\CMS_API_Infrastructure.deps.json
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\bin\Debug\net8.0\CMS_API_Infrastructure.runtimeconfig.json
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\bin\Debug\net8.0\CMS_API_Infrastructure.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\bin\Debug\net8.0\CMS_API_Infrastructure.pdb
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\bin\Debug\net8.0\CMS_API_Core.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\bin\Debug\net8.0\CMS_API_Core.pdb
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.AssemblyInfo.cs
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_.69456D05.Up2Date
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\refint\CMS_API_Infrastructure.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.pdb
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.genruntimeconfig.cache
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\ref\CMS_API_Infrastructure.dll
