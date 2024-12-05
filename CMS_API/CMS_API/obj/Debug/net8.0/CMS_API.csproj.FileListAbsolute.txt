@@ -732,3 +732,11 @@ C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\obj\Debug\net8.0\refi
 C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\obj\Debug\net8.0\CMS_API.pdb
 C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\obj\Debug\net8.0\CMS_API.genruntimeconfig.cache
 C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\obj\Debug\net8.0\ref\CMS_API.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\bin\Debug\net8.0\CMS_API.staticwebassets.endpoints.json
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\bin\Debug\net8.0\System.ClientModel.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\bin\Debug\net8.0\System.Formats.Asn1.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\obj\Debug\net8.0\staticwebassets\msbuild.CMS_API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\bin\Debug\net8.0\CMS_API_Application.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API\bin\Debug\net8.0\CMS_API_Application.pdb

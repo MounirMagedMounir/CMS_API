@@ -1,11 +1,24 @@
-using CMS_API.Dto.Filters;
 using CMS_API.Infrastructure;
 using CMS_API.Middleware;
 using CMS_API.Services;
-using CMS_API_Core.DomainModels;
+using CMS_API.Services.Article;
+using CMS_API.Services.Authentication;
+using CMS_API.Services.Authorization;
+using CMS_API_Application.Interfaces.Servises;
+using CMS_API_Application.Interfaces.Servises.Article;
+using CMS_API_Application.Interfaces.Servises.Authentication;
+using CMS_API_Application.Interfaces.Servises.Authorization;
+using CMS_API_Application.Services.Article;
 using CMS_API_Core.Interfaces.Repository;
+using CMS_API_Core.Interfaces.Repository.Article;
+using CMS_API_Core.Interfaces.Repository.Authentication;
+using CMS_API_Core.Interfaces.Repository.Authorization;
 using CMS_API_Infrastructure.DBcontext;
 using CMS_API_Infrastructure.Repository;
+using CMS_API_Infrastructure.Repository.Article;
+using CMS_API_Infrastructure.Repository.Authentication;
+using CMS_API_Infrastructure.Repository.Authorization;
+using CMS_API_Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -55,21 +68,38 @@ builder.Services.AddCors(options =>
                .AllowCredentials();  // Allow credentials if necessary (for cookies, etc.)
     });
 });
-
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+    b => b.MigrationsAssembly("CMS_API_Infrastructure")));
 
 builder.Services.AddScoped<DataContext>();
 
-builder.Services.AddScoped<AuthService>();
-builder.Services.AddScoped<AdminService>();
+builder.Services.AddScoped<IAuthUserService, AuthUserService>();
+builder.Services.AddScoped<IAuthAdminService, AuthAdminService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IRolePermissionService, RolePermissionService>();
+builder.Services.AddScoped<IPermissionService, PermissionService>();
+builder.Services.AddScoped<IArticleService, ArticleService>();
+builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<ITagService, TagService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
 builder.Services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
 builder.Services.AddScoped<ISessionRepository, SessionRepository>();
+
+builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
+builder.Services.AddScoped<ITagRepository, TagRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
+builder.Services.AddScoped<IArticleContributorRepository, ArticleContributorRepository>();
+builder.Services.AddScoped<ITagArticleRepository, TagArticleRepository>();
+
+
 builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+
+builder.Services.AddScoped<ISecurityService, SecurityService>();
 
 
 

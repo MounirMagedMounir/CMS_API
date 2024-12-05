@@ -1,0 +1,15 @@
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\CMS_API_Application.csproj.AssemblyReference.cache
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\CMS_API_Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\CMS_API_Application.AssemblyInfoInputs.cache
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\CMS_API_Application.AssemblyInfo.cs
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\CMS_API_Application.csproj.CoreCompileInputs.cache
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\bin\Debug\net8.0\CMS_API_Application.deps.json
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\bin\Debug\net8.0\CMS_API_Application.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\bin\Debug\net8.0\CMS_API_Application.pdb
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\bin\Debug\net8.0\CMS_API_Core.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\bin\Debug\net8.0\CMS_API_Core.pdb
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\CMS_API_.B72D8CF7.Up2Date
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\CMS_API_Application.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\refint\CMS_API_Application.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\CMS_API_Application.pdb
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Application\obj\Debug\net8.0\ref\CMS_API_Application.dll

@@ -1,66 +1,365 @@
 [
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "Get",
-    "RelativePath": "Admin",
-    "HttpMethod": "GET",
+    "ContainingType": "CMS_API.Controllers.Authentication.AdminAuthenticationController",
+    "Method": "Login",
+    "RelativePath": "api/AdminAuthentication/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserRequest",
+        "Type": "CMS_API_Application.Dto.Authentication.RequestLogInDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authentication.AdminAuthenticationController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/AdminAuthentication/RefreshToken",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserRequest",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authentication.AdminAuthenticationController",
+    "Method": "SignOut",
+    "RelativePath": "api/AdminAuthentication/SignOut",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "CreatePermission",
-    "RelativePath": "Admin/CreatePermission",
+    "ContainingType": "CMS_API.Controllers.Article.ArticleController",
+    "Method": "Create",
+    "RelativePath": "api/Article/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "UserRequest",
-        "Type": "CMS_API.Dto.Admin.PermissionDto",
+        "Type": "CMS_API_Application.Dto.Article.CreateArticleDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "CreateRole",
-    "RelativePath": "Admin/CreateRole",
+    "ContainingType": "CMS_API.Controllers.Article.ArticleController",
+    "Method": "DeleteById",
+    "RelativePath": "api/Article/DeleteById",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ArticleId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.ArticleController",
+    "Method": "GetById",
+    "RelativePath": "api/Article/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.ArticleController",
+    "Method": "GetCurrentUser",
+    "RelativePath": "api/Article/GetCurrentUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortOrder",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.ArticleController",
+    "Method": "GetList",
+    "RelativePath": "api/Article/GetList",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filterParameter",
+        "Type": "CMS_API_Core.FilterModels.Article.ArticleFilter",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortOrder",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.ArticleController",
+    "Method": "GetListByUserId",
+    "RelativePath": "api/Article/GetListByUserId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortOrder",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.ArticleController",
+    "Method": "Update",
+    "RelativePath": "api/Article/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserRequest",
+        "Type": "CMS_API_Application.Dto.Article.UpdateArticleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.ArticleController",
+    "Method": "UpdateViewCount",
+    "RelativePath": "api/Article/UpdateViewCount",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ArticleId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.CommentController",
+    "Method": "Add",
+    "RelativePath": "api/Comment/Add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "comment",
+        "Type": "CMS_API_Application.Dto.Article.AddCommentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.CommentController",
+    "Method": "Delete",
+    "RelativePath": "api/Comment/Delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.CommentController",
+    "Method": "GetByArticleId",
+    "RelativePath": "api/Comment/GetByArticleId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "articleId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.CommentController",
+    "Method": "GetById",
+    "RelativePath": "api/Comment/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.CommentController",
+    "Method": "GetList",
+    "RelativePath": "api/Comment/GetList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filterParameter",
+        "Type": "CMS_API_Core.FilterModels.Article.CommentsFilter",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortOrder",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.CommentController",
+    "Method": "UpdateStat",
+    "RelativePath": "api/Comment/UpdateStat",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "comment",
+        "Type": "CMS_API_Application.Dto.Article.UpdateCommentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authorization.PermissionController",
+    "Method": "Create",
+    "RelativePath": "api/Permission/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "UserRequest",
-        "Type": "CMS_API.Dto.Admin.RoleDto",
+        "Type": "CMS_API_Application.Dto.Authorization.CreatePermissionDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "CreateUser",
-    "RelativePath": "Admin/CreateUser",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "UserRequest",
-        "Type": "CMS_API.Dto.Admin.UserDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "DeletePermissionById",
-    "RelativePath": "Admin/DeletePermissionById",
+    "ContainingType": "CMS_API.Controllers.Authorization.PermissionController",
+    "Method": "DeleteById",
+    "RelativePath": "api/Permission/DeleteById",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -74,9 +373,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "DeletePermissionsById",
-    "RelativePath": "Admin/DeletePermissionsById",
+    "ContainingType": "CMS_API.Controllers.Authorization.PermissionController",
+    "Method": "DeleteListById",
+    "RelativePath": "api/Permission/DeleteListById",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -90,73 +389,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "DeleteRoleById",
-    "RelativePath": "Admin/DeleteRoleById",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RoleId",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "DeleteRolesById",
-    "RelativePath": "Admin/DeleteRolesById",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RoleId",
-        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "DeleteUser",
-    "RelativePath": "Admin/DeleteUser",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "UserId",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "DeleteUsers",
-    "RelativePath": "Admin/DeleteUsers",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "UserId",
-        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetPermissionById",
-    "RelativePath": "Admin/GetPermissionById",
+    "ContainingType": "CMS_API.Controllers.Authorization.PermissionController",
+    "Method": "GetById",
+    "RelativePath": "api/Permission/GetById",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -170,9 +405,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetPermissionByName",
-    "RelativePath": "Admin/GetPermissionByName",
+    "ContainingType": "CMS_API.Controllers.Authorization.PermissionController",
+    "Method": "GetByName",
+    "RelativePath": "api/Permission/GetByName",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -183,7 +418,7 @@
         "IsRequired": false
       },
       {
-        "Name": "skiped",
+        "Name": "skip",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -196,15 +431,15 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetPermissions",
-    "RelativePath": "Admin/GetPermissions",
+    "ContainingType": "CMS_API.Controllers.Authorization.PermissionController",
+    "Method": "GetList",
+    "RelativePath": "api/Permission/GetList",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "skiped",
+        "Name": "skip",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -217,9 +452,89 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetRoleById",
-    "RelativePath": "Admin/GetRoleById",
+    "ContainingType": "CMS_API.Controllers.Authorization.PermissionController",
+    "Method": "Update",
+    "RelativePath": "api/Permission/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserRequest",
+        "Type": "CMS_API_Application.Dto.Authorization.UpdatePermissionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authorization.RoleController",
+    "Method": "AddPermissions",
+    "RelativePath": "api/Role/AddPermissions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserRequest",
+        "Type": "CMS_API_Application.Dto.Authorization.RolepermissionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authorization.RoleController",
+    "Method": "Create",
+    "RelativePath": "api/Role/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserRequest",
+        "Type": "CMS_API_Application.Dto.Authorization.CreateRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authorization.RoleController",
+    "Method": "DeleteById",
+    "RelativePath": "api/Role/DeleteById",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RoleId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authorization.RoleController",
+    "Method": "DeleteListById",
+    "RelativePath": "api/Role/DeleteListById",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "RoleId",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authorization.RoleController",
+    "Method": "GetById",
+    "RelativePath": "api/Role/GetById",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -233,41 +548,15 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetRoleByName",
-    "RelativePath": "Admin/GetRoleByName",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "RoleName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "skiped",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "take",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetRoles",
-    "RelativePath": "Admin/GetRoles",
+    "ContainingType": "CMS_API.Controllers.Authorization.RoleController",
+    "Method": "GetList",
+    "RelativePath": "api/Role/GetList",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "parameter",
+        "Name": "filterParameter",
         "Type": "CMS_API_Core.FilterModels.RolesFilter",
         "IsRequired": false
       },
@@ -295,114 +584,137 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetUser",
-    "RelativePath": "Admin/GetUser",
-    "HttpMethod": "GET",
+    "ContainingType": "CMS_API.Controllers.Authorization.RoleController",
+    "Method": "RemovePermissions",
+    "RelativePath": "api/Role/RemovePermissions",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "parameter",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "skiped",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "take",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "UserRequest",
+        "Type": "CMS_API_Application.Dto.Authorization.RolepermissionDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetUserById",
-    "RelativePath": "Admin/GetUserById",
-    "HttpMethod": "GET",
+    "ContainingType": "CMS_API.Controllers.Authorization.RoleController",
+    "Method": "Update",
+    "RelativePath": "api/Role/Update",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "UserId",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "UserRequest",
+        "Type": "CMS_API_Application.Dto.Authorization.UpdateRoleDto",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetUserByName",
-    "RelativePath": "Admin/GetUserByName",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "UserName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "skiped",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "take",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetUserByRole",
-    "RelativePath": "Admin/GetUserByRole",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "UserRole",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "skiped",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "take",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "GetUsers",
-    "RelativePath": "Admin/GetUsers",
+    "ContainingType": "CMS_API.Controllers.Article.TagController",
+    "Method": "Create",
+    "RelativePath": "api/Tag/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "parameter",
-        "Type": "CMS_API_Core.FilterModels.UsersFilter",
+        "Name": "tag",
+        "Type": "CMS_API_Application.Dto.Article.CreateTagDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.TagController",
+    "Method": "Delete",
+    "RelativePath": "api/Tag/Delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.TagController",
+    "Method": "DeleteList",
+    "RelativePath": "api/Tag/DeleteList",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Ids",
+        "Type": "System.Collections.Generic.List\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.TagController",
+    "Method": "GetAll",
+    "RelativePath": "api/Tag/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {
-        "Name": "skiped",
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.TagController",
+    "Method": "GetById",
+    "RelativePath": "api/Tag/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Article.TagController",
+    "Method": "GetList",
+    "RelativePath": "api/Tag/GetList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filterParameter",
+        "Type": "CMS_API_Core.FilterModels.Article.TagsFilter",
+        "IsRequired": true
+      },
+      {
+        "Name": "skip",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -425,89 +737,193 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "UpdatePermission",
-    "RelativePath": "Admin/UpdatePermission",
+    "ContainingType": "CMS_API.Controllers.Article.TagController",
+    "Method": "Update",
+    "RelativePath": "api/Tag/Update",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "UserRequest",
-        "Type": "CMS_API.Dto.Admin.PermissionDto",
+        "Name": "tag",
+        "Type": "CMS_API_Application.Dto.Article.UpdateTagDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "UpdateRole",
-    "RelativePath": "Admin/UpdateRole",
-    "HttpMethod": "PUT",
+    "ContainingType": "CMS_API.Controllers.UserController",
+    "Method": "Create",
+    "RelativePath": "api/User/Create",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "UserRequest",
-        "Type": "CMS_API.Dto.Admin.RoleDto",
+        "Type": "CMS_API_Application.Dto.Admin.CreateUserDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AdminController",
-    "Method": "UpdateUser",
-    "RelativePath": "Admin/UpdateUser",
+    "ContainingType": "CMS_API.Controllers.UserController",
+    "Method": "Delete",
+    "RelativePath": "api/User/Delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.UserController",
+    "Method": "DeletePermanent",
+    "RelativePath": "api/User/DeletePermanent",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.UserController",
+    "Method": "GetById",
+    "RelativePath": "api/User/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.UserController",
+    "Method": "GetCurrent",
+    "RelativePath": "api/User/GetCurrent",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.UserController",
+    "Method": "GetList",
+    "RelativePath": "api/User/GetList",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filterParameter",
+        "Type": "CMS_API_Core.FilterModels.UsersFilter",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortOrder",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.UserController",
+    "Method": "Search",
+    "RelativePath": "api/User/Search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "parameter",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "skip",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.UserController",
+    "Method": "Update",
+    "RelativePath": "api/User/Update",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "UserRequest",
-        "Type": "CMS_API.Dto.Admin.UserDto",
+        "Type": "CMS_API_Application.Dto.UpdateUserDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AuthenticationController",
+    "ContainingType": "CMS_API.Controllers.Authentication.UserAuthenticationController",
     "Method": "EmailVerification",
-    "RelativePath": "Authentication/EmailVerification",
+    "RelativePath": "api/UserAuthentication/EmailVerification",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "UserRequest",
-        "Type": "CMS_API.Dto.Authentication.VerificationEmailDto",
+        "Type": "CMS_API_Application.Dto.Authentication.VerificationEmailDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AuthenticationController",
-    "Method": "Login",
-    "RelativePath": "Authentication/login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "UserRequest",
-        "Type": "CMS_API.Dto.Authentication.LoginDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CMS_API.Controllers.AuthenticationController",
-    "Method": "RefreshToken",
-    "RelativePath": "Authentication/RefreshToken",
+    "ContainingType": "CMS_API.Controllers.Authentication.UserAuthenticationController",
+    "Method": "ForgetPassword",
+    "RelativePath": "api/UserAuthentication/ForgetPassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -521,25 +937,57 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AuthenticationController",
-    "Method": "RegisterUser",
-    "RelativePath": "Authentication/register",
+    "ContainingType": "CMS_API.Controllers.Authentication.UserAuthenticationController",
+    "Method": "Login",
+    "RelativePath": "api/UserAuthentication/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "UserRequest",
-        "Type": "CMS_API.Dto.Authentication.RegisterDto",
+        "Type": "CMS_API_Application.Dto.Authentication.RequestLogInDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "CMS_API.Controllers.AuthenticationController",
+    "ContainingType": "CMS_API.Controllers.Authentication.UserAuthenticationController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/UserAuthentication/RefreshToken",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserRequest",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authentication.UserAuthenticationController",
+    "Method": "RegisterUser",
+    "RelativePath": "api/UserAuthentication/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserRequest",
+        "Type": "CMS_API_Application.Dto.Authentication.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authentication.UserAuthenticationController",
     "Method": "SignOut",
-    "RelativePath": "Authentication/SignOut",
+    "RelativePath": "api/UserAuthentication/SignOut",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
