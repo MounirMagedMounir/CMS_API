@@ -15,3 +15,5 @@ C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\De
 C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.pdb
 C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\CMS_API_Infrastructure.genruntimeconfig.cache
 C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\obj\Debug\net8.0\ref\CMS_API_Infrastructure.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\bin\Debug\net8.0\CMS_API_Application.dll
+C:\Users\Mounir\Documents\projects\Sync\C#\CMS_API\CMS_API_Infrastructure\bin\Debug\net8.0\CMS_API_Application.pdb

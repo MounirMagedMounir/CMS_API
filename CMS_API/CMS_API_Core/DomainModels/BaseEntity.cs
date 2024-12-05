@@ -6,19 +6,15 @@ namespace CMS_API_Core.DomainModels
     {
         public string Id { get; set; }
 
-
         public DateTime CreatedDate { get; set; }
-
 
         public DateTime LastUpdatedDate { get; set; } = DateTime.Now;
 
-
         public string CreatedbyId { get; set; }
-
+        public virtual User CreatedBy { get; set; }
 
         public string LastUpdatedbyId { get; set; }
-
-        public virtual extern Dictionary<string, string> Validation();
+        public virtual User? LastUpdatedBy { get; set; }
 
 
     }

@@ -13,18 +13,18 @@ namespace CMS_API_Core.FilterModels
 
         public string? Phone { get; set; }
 
-        public bool? IsActive { get; set; } = true;
+        public bool? IsActive { get; set; }
 
         public string? RoleName { get; set; }
 
-        public override Dictionary<string, string> Validation()
+        public override List<string> Validation()
         {
 
             ModelValidations validations = new();
 
             validations.IsTrueOrFalse(IsActive, "IsActive", "IsActive must be (true) or (false)")
                        .IsString(Name, "Name", "Name Is Not a String")
-                       .IsNotString(Phone, "Phone", "Invalid Phone : ")
+                       .IsPhoneValid(Phone, "Phone", "Invalid Phone : ")
                        .IsUsernameValid(UserName, "UserName", "Invalid username : ")
                        ;
 

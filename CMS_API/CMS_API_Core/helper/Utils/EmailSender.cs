@@ -2,6 +2,8 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using CMS_API_Core.helper.Response;
+using Microsoft.AspNetCore.Http;
 
 namespace CMS_API_Core.helper.Utils
 {
@@ -18,9 +20,8 @@ namespace CMS_API_Core.helper.Utils
             _configuration = configuration;
         }
 
-        public ActionResult EmailMessage(string to, string subject, string content)
+        public ApiResponse<object?> EmailMessage(string to, string subject, string content)
         {
-            var Respons = new Dictionary<string, object>();
             try
             {
                 MailMessage message = new MailMessage();
@@ -38,17 +39,22 @@ namespace CMS_API_Core.helper.Utils
 
                 SmtpClient.Send(message);
 
-                Respons["Success"] = "the email send Successfuly";
 
-                return Ok(Respons.ToList());
 
+                return new ApiResponse<object?>(
+                             data: null,
+                             status: StatusCodes.Status200OK,
+                             message: ["the email send Successfuly"]);
 
             }
             catch (System.Exception e)
             {
-                Respons["Alert"] = " the email couldn't be send please try again" + e;
 
-                return BadRequest(Respons.ToList());
+                return new ApiResponse<object?>(
+               data: null, // Error message
+               status: StatusCodes.Status400BadRequest,
+               message: [" the email couldn't be send please try again" + e]);
+
             }
 
         }

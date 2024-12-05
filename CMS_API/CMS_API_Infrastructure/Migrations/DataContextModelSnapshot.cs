@@ -17,12 +17,148 @@ namespace CMS_API_Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.7")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CMS_API.DomainModels.Permission", b =>
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.ArticleContributor", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ArticleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ContributorRole")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ArticleContributor", (string)null);
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.Comment", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ApprovedById")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("ApprovedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ArticleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedbyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastUpdatedbyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ParentId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApprovedById");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("CreatedbyId");
+
+                    b.HasIndex("LastUpdatedbyId");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("Comment", (string)null);
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.ContentArticle", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedbyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastUpdatedbyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PublishDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Video")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ViewsCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedbyId");
+
+                    b.HasIndex("LastUpdatedbyId");
+
+                    b.ToTable("Article", (string)null);
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.Tag", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -32,14 +168,14 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.Property<string>("CreatedbyId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("LastUpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("LastUpdatedbyId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -47,10 +183,36 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Permissions");
+                    b.HasIndex("CreatedbyId");
+
+                    b.HasIndex("LastUpdatedbyId");
+
+                    b.ToTable("Tag", (string)null);
                 });
 
-            modelBuilder.Entity("CMS_API.DomainModels.RefreshToken", b =>
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.TagArticle", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ArticleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TagId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("TagArticle", (string)null);
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authentication.RefreshToken", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -64,66 +226,23 @@ namespace CMS_API_Infrastructure.Migrations
                     b.Property<DateTime?>("RevokedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("SessionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Token")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("RefreshToken");
+                    b.HasIndex("SessionId")
+                        .IsUnique();
+
+                    b.ToTable("RefreshToken", (string)null);
                 });
 
-            modelBuilder.Entity("CMS_API.DomainModels.Role", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedbyId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LastUpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastUpdatedbyId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Role");
-                });
-
-            modelBuilder.Entity("CMS_API.DomainModels.RolePermission", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("PermissionId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PermissionId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("RolePermission");
-                });
-
-            modelBuilder.Entity("CMS_API.DomainModels.Session", b =>
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authentication.Session", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -148,10 +267,6 @@ namespace CMS_API_Infrastructure.Migrations
                     b.Property<DateTime>("LastUpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("RefreshTokenId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Token")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -162,15 +277,13 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RefreshTokenId");
-
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Session");
+                    b.ToTable("Session", (string)null);
                 });
 
-            modelBuilder.Entity("CMS_API.DomainModels.User", b =>
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.Permission", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -180,7 +293,93 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.Property<string>("CreatedbyId")
                         .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastUpdatedbyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedbyId");
+
+                    b.HasIndex("LastUpdatedbyId");
+
+                    b.ToTable("Permissions", (string)null);
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.Role", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedbyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("LastUpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastUpdatedbyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedbyId");
+
+                    b.HasIndex("LastUpdatedbyId");
+
+                    b.ToTable("Role", (string)null);
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.RolePermission", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PermissionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PermissionId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("RolePermission", (string)null);
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.User", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedbyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -194,7 +393,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.Property<string>("LastUpdatedbyId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -222,21 +421,200 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CreatedbyId");
+
+                    b.HasIndex("LastUpdatedbyId");
+
                     b.HasIndex("RoleId");
 
-                    b.ToTable("User");
+                    b.ToTable("User", (string)null);
                 });
 
-            modelBuilder.Entity("CMS_API.DomainModels.RolePermission", b =>
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.ArticleContributor", b =>
                 {
-                    b.HasOne("CMS_API.DomainModels.Permission", "Permission")
-                        .WithMany("RolePermission")
+                    b.HasOne("CMS_API_Core.DomainModels.Article.ContentArticle", "Article")
+                        .WithMany()
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CMS_API_Core.DomainModels.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Article");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.Comment", b =>
+                {
+                    b.HasOne("CMS_API_Core.DomainModels.User", "ApprovedBy")
+                        .WithMany()
+                        .HasForeignKey("ApprovedById");
+
+                    b.HasOne("CMS_API_Core.DomainModels.Article.ContentArticle", "Article")
+                        .WithMany("Comments")
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CMS_API_Core.DomainModels.User", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CMS_API_Core.DomainModels.User", "LastUpdatedBy")
+                        .WithMany()
+                        .HasForeignKey("LastUpdatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CMS_API_Core.DomainModels.Article.Comment", "Parent")
+                        .WithMany()
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("ApprovedBy");
+
+                    b.Navigation("Article");
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("LastUpdatedBy");
+
+                    b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.ContentArticle", b =>
+                {
+                    b.HasOne("CMS_API_Core.DomainModels.User", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CMS_API_Core.DomainModels.User", "LastUpdatedBy")
+                        .WithMany()
+                        .HasForeignKey("LastUpdatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("LastUpdatedBy");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.Tag", b =>
+                {
+                    b.HasOne("CMS_API_Core.DomainModels.User", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CMS_API_Core.DomainModels.User", "LastUpdatedBy")
+                        .WithMany()
+                        .HasForeignKey("LastUpdatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("LastUpdatedBy");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.TagArticle", b =>
+                {
+                    b.HasOne("CMS_API_Core.DomainModels.Article.ContentArticle", "Article")
+                        .WithMany()
+                        .HasForeignKey("ArticleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CMS_API_Core.DomainModels.Article.Tag", "Tag")
+                        .WithMany()
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Article");
+
+                    b.Navigation("Tag");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authentication.RefreshToken", b =>
+                {
+                    b.HasOne("CMS_API_Core.DomainModels.Authentication.Session", "Session")
+                        .WithOne("RefreshToken")
+                        .HasForeignKey("CMS_API_Core.DomainModels.Authentication.RefreshToken", "SessionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Session");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authentication.Session", b =>
+                {
+                    b.HasOne("CMS_API_Core.DomainModels.User", "User")
+                        .WithOne("Session")
+                        .HasForeignKey("CMS_API_Core.DomainModels.Authentication.Session", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.Permission", b =>
+                {
+                    b.HasOne("CMS_API_Core.DomainModels.User", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CMS_API_Core.DomainModels.User", "LastUpdatedBy")
+                        .WithMany()
+                        .HasForeignKey("LastUpdatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("LastUpdatedBy");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.Role", b =>
+                {
+                    b.HasOne("CMS_API_Core.DomainModels.User", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("CMS_API_Core.DomainModels.User", "LastUpdatedBy")
+                        .WithMany()
+                        .HasForeignKey("LastUpdatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("LastUpdatedBy");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.RolePermission", b =>
+                {
+                    b.HasOne("CMS_API_Core.DomainModels.Authorization.Permission", "Permission")
+                        .WithMany()
                         .HasForeignKey("PermissionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CMS_API.DomainModels.Role", "Role")
-                        .WithMany("RolePermission")
+                    b.HasOne("CMS_API_Core.DomainModels.Authorization.Role", "Role")
+                        .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -246,50 +624,52 @@ namespace CMS_API_Infrastructure.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("CMS_API.DomainModels.Session", b =>
+            modelBuilder.Entity("CMS_API_Core.DomainModels.User", b =>
                 {
-                    b.HasOne("CMS_API.DomainModels.RefreshToken", "RefreshToken")
+                    b.HasOne("CMS_API_Core.DomainModels.User", "CreatedBy")
                         .WithMany()
-                        .HasForeignKey("RefreshTokenId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("CreatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("CMS_API.DomainModels.User", "User")
-                        .WithOne("Session")
-                        .HasForeignKey("CMS_API.DomainModels.Session", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("CMS_API_Core.DomainModels.User", "LastUpdatedBy")
+                        .WithMany()
+                        .HasForeignKey("LastUpdatedbyId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("RefreshToken");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CMS_API.DomainModels.User", b =>
-                {
-                    b.HasOne("CMS_API.DomainModels.Role", "Role")
-                        .WithMany()
+                    b.HasOne("CMS_API_Core.DomainModels.Authorization.Role", "Role")
+                        .WithMany("Users")
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.Navigation("CreatedBy");
+
+                    b.Navigation("LastUpdatedBy");
 
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("CMS_API.DomainModels.Permission", b =>
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Article.ContentArticle", b =>
                 {
-                    b.Navigation("RolePermission");
+                    b.Navigation("Comments");
                 });
 
-            modelBuilder.Entity("CMS_API.DomainModels.Role", b =>
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authentication.Session", b =>
                 {
-                    b.Navigation("RolePermission");
-                });
-
-            modelBuilder.Entity("CMS_API.DomainModels.User", b =>
-                {
-                    b.Navigation("Session")
+                    b.Navigation("RefreshToken")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.Role", b =>
+                {
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("CMS_API_Core.DomainModels.User", b =>
+                {
+                    b.Navigation("Session");
                 });
 #pragma warning restore 612, 618
         }

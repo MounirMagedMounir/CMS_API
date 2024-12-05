@@ -7,16 +7,15 @@ namespace CMS_API_Core.Interfaces.Repository
     {
         User GetUserById(string userId);
         User GetUserByEmailAndPassword(string email, string password);
-        IEnumerable<User> GetUsers(UsersFilter filter, string sortBy, string sortOrder);
-        IEnumerable<User> GetUsersByName(string userName);
-        IEnumerable<User> GetUsersByRole(string roleName);
+        IEnumerable<User> GetUsers(UsersFilter? filterParameter, string? sortBy, string? sortOrder);
         IEnumerable<User> GetUsersByParameter(string parameter);
         void AddUser(User user);
         void UpdateUser(User user);
         void DeleteUser(string userId);
         void DeleteUsers(List<string> userIds);
         bool IsEmailExists(string email);
-        Task SaveChangesAsync();
+        bool IsUserRoleAdmin(string userId);
+        void SaveChanges();
     }
 
 }

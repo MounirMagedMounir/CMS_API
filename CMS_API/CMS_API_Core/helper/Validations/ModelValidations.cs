@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Net.Mail;
-using System.Numerics;
+﻿using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 
@@ -24,6 +21,7 @@ namespace CMS_API_Core.Validations
             return this;
 
         }
+
         public ModelValidations IsTrueOrFalse(bool? value, string key, string errorMassage)
         {
             if (value != null)
@@ -62,6 +60,7 @@ namespace CMS_API_Core.Validations
             return this;
 
         }
+
         public ModelValidations IsNotString(string value, string key, string errorMassage)
         {
             if (value != null)
@@ -82,6 +81,7 @@ namespace CMS_API_Core.Validations
             return this;
 
         }
+
         public ModelValidations IsPhoneValid(string phone, string key, string errorMassage)
         {
             if (phone != null)
@@ -158,14 +158,13 @@ namespace CMS_API_Core.Validations
                 {
                     if (content.Contains(item))
                     {
-                        errors.TryAdd(key, errorMassage);
+                        errors.TryAdd(key, errorMassage + $"Contain a Forbiden Value ( {item} )");
                     }
                 }
             }
             return this;
 
         }
-
 
         public ModelValidations IsEmailValid(string email, string key, string errorMassage)
         {
@@ -188,10 +187,6 @@ namespace CMS_API_Core.Validations
             return this;
 
         }
-
-
-
-
 
         public ModelValidations IsPasswordValid(string password, string key, string errorMassage)
         {
@@ -285,8 +280,6 @@ namespace CMS_API_Core.Validations
 
         }
 
-
-
         public ModelValidations IsExtintionValid(string content, string[] extintions, string key, string errorMassage)
         {
             if (content != null)
@@ -306,10 +299,9 @@ namespace CMS_API_Core.Validations
 
         }
 
-
-        public Dictionary<string, string> GetValidations()
+        public  List<string> GetValidations()
         {
-            return errors;
+            return errors.Values.ToList();
         }
 
     }

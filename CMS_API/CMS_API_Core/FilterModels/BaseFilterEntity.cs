@@ -16,9 +16,13 @@ namespace CMS_API_Core.FilterModels
 
         public string? CreatedbyId { get; set; }
 
+        public string? CreatedbyName { get; set; }
+
         public string? LastUpdatedbyId { get; set; }
 
-        public virtual extern Dictionary<string, string> Validation();
+        public string? LastUpdatedbyName { get; set; }
+
+        public virtual extern List<string> Validation();
 
 
     }

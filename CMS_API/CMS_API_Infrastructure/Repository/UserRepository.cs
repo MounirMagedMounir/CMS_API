@@ -22,74 +22,84 @@ namespace CMS_API_Infrastructure.Repository
             return _context.User.Include(u => u.Role).FirstOrDefault(u => u.Id == userId);
         }
 
-        public IEnumerable<User> GetUsers(UsersFilter filter, string sortBy, string sortOrder)
+        public IEnumerable<User> GetUsers(UsersFilter? filterParameter, string? sortBy, string? sortOrder)
         {
-            var query = _context.User.Include(u => u.Role).AsQueryable();
+            var query = _context.User.Include(u => u.Role).Include(c => c.CreatedBy).Include(c => c.LastUpdatedBy).AsQueryable();
 
             // Apply filters from UsersFilter class
-            if (Guid.TryParse(filter.Id, out Guid parsedId) && parsedId != Guid.Empty)
+            if (Guid.TryParse(filterParameter.Id, out Guid parsedId) && parsedId != Guid.Empty)
             {
                 query = query.Where(u => u.Id == parsedId.ToString());
             }
 
-            if (!string.IsNullOrWhiteSpace(filter.Name))
+            if (!string.IsNullOrWhiteSpace(filterParameter.Name))
             {
-                query = query.Where(u => u.Name.Contains(filter.Name));
+                query = query.Where(u => u.Name.Contains(filterParameter.Name));
             }
 
-            if (!string.IsNullOrWhiteSpace(filter.Email))
+            if (!string.IsNullOrWhiteSpace(filterParameter.Email))
             {
-                query = query.Where(u => u.Email.Contains(filter.Email));
+                query = query.Where(u => u.Email.Contains(filterParameter.Email));
             }
 
-            if (!string.IsNullOrWhiteSpace(filter.UserName))
+            if (!string.IsNullOrWhiteSpace(filterParameter.UserName))
             {
-                query = query.Where(u => u.UserName.Contains(filter.UserName));
+                query = query.Where(u => u.UserName.Contains(filterParameter.UserName));
             }
 
-            if (filter.IsActive.HasValue)
+            if (filterParameter.IsActive.HasValue)
             {
-                query = query.Where(u => u.IsActive == filter.IsActive.Value);
+                query = query.Where(u => u.IsActive == filterParameter.IsActive.Value);
             }
 
-            if (!string.IsNullOrWhiteSpace(filter.Phone))
+            if (!string.IsNullOrWhiteSpace(filterParameter.Phone))
             {
-                query = query.Where(u => u.Phone.Contains(filter.Phone));
+                query = query.Where(u => u.Phone.Contains(filterParameter.Phone));
             }
 
-            if (!string.IsNullOrWhiteSpace(filter.RoleName))
+            if (!string.IsNullOrWhiteSpace(filterParameter.RoleName))
             {
-                query = query.Where(u => u.Role.Name.Contains(filter.RoleName));
+                query = query.Where(u => u.Role.Name.Contains(filterParameter.RoleName));
             }
 
-            if (Guid.TryParse(filter.CreatedbyId, out Guid createdById) && createdById != Guid.Empty)
+            if (Guid.TryParse(filterParameter.CreatedbyId, out Guid createdById) && createdById != Guid.Empty)
             {
                 query = query.Where(u => u.CreatedbyId == createdById.ToString());
             }
 
-            if (filter.CreatedDateFrom.HasValue)
+            if (!string.IsNullOrWhiteSpace(filterParameter.CreatedbyName))
             {
-                query = query.Where(u => u.CreatedDate.Date >= filter.CreatedDateFrom.Value.Date);
+                query = query.Where(c => c.CreatedBy.UserName.Contains(filterParameter.CreatedbyName));
             }
 
-            if (filter.CreatedDateTo.HasValue)
+            if (filterParameter.CreatedDateFrom.HasValue)
             {
-                query = query.Where(u => u.CreatedDate.Date <= filter.CreatedDateTo.Value.Date);
+                query = query.Where(u => u.CreatedDate.Date >= filterParameter.CreatedDateFrom.Value.Date);
             }
 
-            if (Guid.TryParse(filter.LastUpdatedbyId, out Guid lastUpdatedById) && lastUpdatedById != Guid.Empty)
+            if (filterParameter.CreatedDateTo.HasValue)
+            {
+                query = query.Where(u => u.CreatedDate.Date <= filterParameter.CreatedDateTo.Value.Date);
+            }
+
+            if (Guid.TryParse(filterParameter.LastUpdatedbyId, out Guid lastUpdatedById) && lastUpdatedById != Guid.Empty)
             {
                 query = query.Where(u => u.LastUpdatedbyId == lastUpdatedById.ToString());
             }
 
-            if (filter.LastUpdatedDateFrom.HasValue)
+            if (!string.IsNullOrWhiteSpace(filterParameter.LastUpdatedbyName))
             {
-                query = query.Where(u => u.LastUpdatedDate.Date >= filter.LastUpdatedDateFrom.Value.Date);
+                query = query.Where(c => c.LastUpdatedBy.UserName.Contains(filterParameter.LastUpdatedbyName));
             }
 
-            if (filter.LastUpdatedDateTo.HasValue)
+            if (filterParameter.LastUpdatedDateFrom.HasValue)
             {
-                query = query.Where(u => u.LastUpdatedDate.Date <= filter.LastUpdatedDateTo.Value.Date);
+                query = query.Where(u => u.LastUpdatedDate.Date >= filterParameter.LastUpdatedDateFrom.Value.Date);
+            }
+
+            if (filterParameter.LastUpdatedDateTo.HasValue)
+            {
+                query = query.Where(u => u.LastUpdatedDate.Date <= filterParameter.LastUpdatedDateTo.Value.Date);
             }
 
             // Apply sorting based on sortBy and sortOrder
@@ -110,17 +120,6 @@ namespace CMS_API_Infrastructure.Repository
             return query.ToList();
         }
 
-        public IEnumerable<User> GetUsersByName(string userName)
-        {
-            return _context.User.Where(u => u.Name.Contains(userName));
-        }
-
-        public IEnumerable<User> GetUsersByRole(string roleName)
-        {
-            var role = _context.Role.FirstOrDefault(r => r.Name == roleName);
-            return role != null ? _context.User.Where(u => u.RoleId == role.Id) : null;
-        }
-
         public void AddUser(User user)
         {
             _context.User.Add(user);
@@ -128,7 +127,7 @@ namespace CMS_API_Infrastructure.Repository
 
         public void UpdateUser(User user)
         {
-         
+
             _context.User.Update(user);
         }
 
@@ -152,15 +151,17 @@ namespace CMS_API_Infrastructure.Repository
             return _context.User.Any(u => u.Email == email);
         }
 
-        public async Task SaveChangesAsync()
+        public void SaveChanges()
         {
-           
+
             _context.SaveChanges();
         }
 
         public IEnumerable<User> GetUsersByParameter(string parameter)
         {
             return _context.User.Include(u => u.Role)
+                .Include(c => c.CreatedBy)
+                .Include(c => c.LastUpdatedBy)
                 .Where(u => EF.Functions.Like(u.Id, $"%{parameter}%") ||
                             EF.Functions.Like(u.Name, $"%{parameter}%") ||
                             EF.Functions.Like(u.Email, $"%{parameter}%") ||
@@ -169,15 +170,22 @@ namespace CMS_API_Infrastructure.Repository
                             EF.Functions.Like(u.Phone, $"%{parameter}%") ||
                             EF.Functions.Like(u.Role.Name, $"%{parameter}%") ||
                             EF.Functions.Like(u.CreatedbyId, $"%{parameter}%") ||
+                            EF.Functions.Like(u.CreatedBy.UserName, $"%{parameter}%") ||
                             EF.Functions.Like(u.CreatedDate.ToString(), $"%{parameter}%") ||
                             EF.Functions.Like(u.LastUpdatedbyId, $"%{parameter}%") ||
-                            EF.Functions.Like(u.LastUpdatedDate.ToString(), $"%{parameter}%"))
-                .ToList();
+                            EF.Functions.Like(u.LastUpdatedBy.UserName, $"%{parameter}%") ||
+                            EF.Functions.Like(u.LastUpdatedDate.ToString(), $"%{parameter}%")
+                           ).ToList();
         }
 
         public User GetUserByEmailAndPassword(string email, string password)
         {
             return _context.User.FirstOrDefault(u => u.Email == email && u.Password == password);
+        }
+
+        public bool IsUserRoleAdmin(string userId)
+        {
+            return _context.User.Include(u => u.Role).Any(u => u.Id == userId && u.Role.Name == "Admin" || u.Role.Name == "Super Admin");
         }
     }
 }
