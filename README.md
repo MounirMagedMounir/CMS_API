@@ -4,7 +4,8 @@
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/MounirMagedMounir/CMS_API)  
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  
 
-The **CMS_API** is a scalable and feature-rich API built using **.NET 8** and **Clean Architecture principles**. It supports JWT Authentication and User,Role and Permission Management . 
+The **CMS_API** is a scalable and feature-rich API built using **.NET 8** and **Clean Architecture principles**. It supports JWT Authentication and User , Role , Permission ,article management, contributor roles, hierarchical comments .Perfect for modern publishing platforms and collaborative workflows.
+ 
 
 ---
 
@@ -12,7 +13,9 @@ The **CMS_API** is a scalable and feature-rich API built using **.NET 8** and **
 
 - **User Management:** Manage User with advanced roles.  
 - **Role Management:** CRUD Operation to Manage the Role.
-- **Permisssion Management:** CRUD Operation to Manage the Permission.  
+- **Permisssion Management:** CRUD Operation to Manage the Permission.
+- **Content Management:** Manage articles with advanced contributor roles.  
+- **Contributor Roles:** Multiple predefined roles such as Writer, Editor, and Publisher.
 - **Clean Architecture:** Follows SOLID principles for scalability and maintainability.  
 - **Authentication:** JWT-based secure session handling.  
 - **Role-Based Access Control (RBAC):** Fine-grained permissions based on roles and Multiple predefined roles such as Super Admin, Admin, and User.
@@ -92,6 +95,17 @@ The **CMS_API** is a scalable and feature-rich API built using **.NET 8** and **
 - **POST** `/api/Role/GetList?skip=1&take=3&sortBy=name&sortOrder=ase` - Retrieve all roles  
 - **POST** `/api/Role/Create` - Add a new role  
 
+### Articles  
+- **POST** `/api/Article/GetList?skip=1&take=2&sortBy=name&sortOrder=ace` - Retrieve all articles  
+- **POST** `/api/Article/Create` - Create a new article  
+- **PUT** `/api//Article/Update` - Update an article  
+- **DELETE** `/api/Article/DeleteById?ArticleId=Article_Id` - Delete an article  
+
+### Comments  
+- **GET** `/api/Comment/GetByArticleId?articleId=Article_Id` - Retrieve comments for an article  
+- **POST** `/api/Comment/Add` - Add a comment  
+- **DELETE** `/api/Comment/Delete?Id=Comment_Id` - Delete a comment (handles cascading deletion)  
+
 ---
 
 ### API Documentation
@@ -109,6 +123,14 @@ The API supports fine-grained role-based access control (RBAC). Predefined roles
 - 
 Access control is enforced through policies validated at runtime.
 Permissions are validated using JWT tokens with role-specific claims.
+
+---
+
+## Hierarchy Management  
+
+- **Parent-Child Relationship:** Nested comments for articles.  
+- **Cascading Deletion:** Automatically removes child comments when a parent is deleted.  
+- **Entity Design:** The `Comment` entity includes `ParentId` and `ArticleId` for relationship management.  
 
 ---
 
