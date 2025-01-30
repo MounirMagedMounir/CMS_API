@@ -1506,6 +1506,18 @@
         }
       }
     },
+    "/api/UserAuthentication/ping": {
+      "get": {
+        "tags": [
+          "UserAuthentication"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/UserAuthentication/register": {
       "post": {
         "tags": [

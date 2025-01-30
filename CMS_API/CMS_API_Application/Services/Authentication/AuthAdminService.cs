@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Http;
 using CMS_API_Application.Dto.Authentication;
 using CMS_API_Application.Interfaces.Servises.Authentication;
+using CMS_API_Core.DomainModels;
 
 namespace CMS_API.Services.Authentication
 {
@@ -36,6 +37,14 @@ namespace CMS_API.Services.Authentication
                         data: null,
                         status: StatusCodes.Status404NotFound,
                         message: new List<string> { "Email or Password is incorrect" });
+
+            if (!user.IsActive)
+            {
+                return new ApiResponse<object?>(
+                          data: null,
+                          status: StatusCodes.Status404NotFound,
+                          message: ["Email or Password is incorrect", "make sure you put the right email and password"]);
+            }
 
             if (!userRepository.IsUserRoleAdmin(user.Id))
                 return new ApiResponse<object?>(
@@ -148,11 +157,10 @@ namespace CMS_API.Services.Authentication
                 return new ApiResponse<object?>(
                        data: null,
                        status: StatusCodes.Status400BadRequest,
-                       message: new List<string> { "Inbalid token" });
+                       message: new List<string> { "Invalid token" });
 
             sessionRepository.DeleteSession(userSession);
             sessionRepository.SaveChanges();
-
 
             return new ApiResponse<object?>(
                              data: null,

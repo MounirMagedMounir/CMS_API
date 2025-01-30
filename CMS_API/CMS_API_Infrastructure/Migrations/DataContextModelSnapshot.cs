@@ -44,7 +44,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("ArticleContributor", (string)null);
+                    b.ToTable("ArticleContributor");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Article.Comment", b =>
@@ -98,7 +98,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("Comment", (string)null);
+                    b.ToTable("Comment");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Article.ContentArticle", b =>
@@ -155,7 +155,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasIndex("LastUpdatedbyId");
 
-                    b.ToTable("Article", (string)null);
+                    b.ToTable("Article");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Article.Tag", b =>
@@ -187,7 +187,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasIndex("LastUpdatedbyId");
 
-                    b.ToTable("Tag", (string)null);
+                    b.ToTable("Tag");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Article.TagArticle", b =>
@@ -209,7 +209,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("TagArticle", (string)null);
+                    b.ToTable("TagArticle");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Authentication.RefreshToken", b =>
@@ -239,7 +239,7 @@ namespace CMS_API_Infrastructure.Migrations
                     b.HasIndex("SessionId")
                         .IsUnique();
 
-                    b.ToTable("RefreshToken", (string)null);
+                    b.ToTable("RefreshToken");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Authentication.Session", b =>
@@ -280,7 +280,7 @@ namespace CMS_API_Infrastructure.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("Session", (string)null);
+                    b.ToTable("Session");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.Permission", b =>
@@ -312,7 +312,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasIndex("LastUpdatedbyId");
 
-                    b.ToTable("Permissions", (string)null);
+                    b.ToTable("Permissions");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.Role", b =>
@@ -344,7 +344,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasIndex("LastUpdatedbyId");
 
-                    b.ToTable("Role", (string)null);
+                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Authorization.RolePermission", b =>
@@ -366,7 +366,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("RolePermission", (string)null);
+                    b.ToTable("RolePermission");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.User", b =>
@@ -427,7 +427,7 @@ namespace CMS_API_Infrastructure.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("User", (string)null);
+                    b.ToTable("User");
                 });
 
             modelBuilder.Entity("CMS_API_Core.DomainModels.Article.ArticleContributor", b =>

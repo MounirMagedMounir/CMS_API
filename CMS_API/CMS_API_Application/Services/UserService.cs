@@ -198,7 +198,7 @@ namespace CMS_API.Services
             {
                 return new ApiResponse<object?>(
                      data: null,
-                     status: StatusCodes.Status400BadRequest,
+                     status: StatusCodes.Status404NotFound,
                      message: [" user id dosen`t exist"]);
             }
             user.IsActive = false;
@@ -217,15 +217,17 @@ namespace CMS_API.Services
         public ApiResponse<object?> GetList(UsersFilter? filterParameter, int skip, int take, string? sortBy = "Name", string? sortOrder = "asc")
         {
 
+            var validationErrors = filterParameter?.Validation();
 
-            var validationErrors = filterParameter.Validation();
-
-            if (validationErrors.Count > 0)
+            if (validationErrors?.Count > 0)
             {
+                var message = new List<string>(["No users found with the given parameters."]);
+                message.AddRange(validationErrors.ToList());
+
                 return new ApiResponse<object?>(
                         data: null,
                         status: StatusCodes.Status404NotFound,
-                        message: ["No users found with the given parameters." + validationErrors.ToList()]);
+                        message: message);
             }
 
             var users = _userRepository.GetUsers(filterParameter, sortBy, sortOrder).Select(user => new GetUserDto
@@ -298,8 +300,8 @@ namespace CMS_API.Services
             {
                 return new ApiResponse<object?>(
                             data: null,
-                            status: StatusCodes.Status400BadRequest,
-                            message: [$"user parameter: {parameter} dosen`t exist"]);
+                            status: StatusCodes.Status404NotFound,
+                            message: [$"user with parameter: {parameter} dosen`t exist"]);
             }
 
             var userList = user.Skip((skip - 1) * take).Take(take).ToList();
@@ -364,7 +366,7 @@ namespace CMS_API.Services
 
                 return new ApiResponse<object?>(
                        data: null,
-                       status: StatusCodes.Status400BadRequest,
+                       status: StatusCodes.Status404NotFound,
                        message: ["user id dosen`t exist"]);
             }
 

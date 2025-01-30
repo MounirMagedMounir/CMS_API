@@ -189,7 +189,7 @@ namespace CMS_API.Services.Authorization
             {
                 return new ApiResponse<object?>(
           data: null,
-          status: StatusCodes.Status400BadRequest,
+          status: StatusCodes.Status404NotFound,
           message: ["No Permissions found with the given parameters."]);
             }
 
@@ -213,7 +213,7 @@ namespace CMS_API.Services.Authorization
             {
                 return new ApiResponse<object?>(
                         data: null,
-                        status: StatusCodes.Status400BadRequest,
+                        status: StatusCodes.Status404NotFound,
                         message: [$" Permission id {PermissionId}dosen`t exist"]);
             }
 
@@ -259,7 +259,7 @@ namespace CMS_API.Services.Authorization
             {
                 return new ApiResponse<object?>(
           data: null,
-          status: StatusCodes.Status400BadRequest,
+          status: StatusCodes.Status404NotFound,
           message: [
               $"Permissio Name :{PermissionName} dosen`t exist"]);
             }

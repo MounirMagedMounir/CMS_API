@@ -1,20 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Mounir\\Documents\\projects\\Sync\\C#\\CMS_API\\CMS_API\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{7C68759A-95C9-4780-8672-DEEE087AADC3}|CMS_API.csproj|c:\\users\\mounir\\documents\\projects\\sync\\c#\\cms_api\\cms_api\\controllers\\authorization\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C68759A-95C9-4780-8672-DEEE087AADC3}|CMS_API.csproj|solutionrelative:controllers\\authorization\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C68759A-95C9-4780-8672-DEEE087AADC3}|CMS_API.csproj|c:\\users\\mounir\\documents\\projects\\sync\\c#\\cms_api\\cms_api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C68759A-95C9-4780-8672-DEEE087AADC3}|CMS_API.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C68759A-95C9-4780-8672-DEEE087AADC3}|CMS_API.csproj|c:\\users\\mounir\\documents\\projects\\sync\\c#\\cms_api\\cms_api\\controllers\\authorization\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C68759A-95C9-4780-8672-DEEE087AADC3}|CMS_API.csproj|solutionrelative:controllers\\authorization\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\Mounir\\Documents\\GitHub\\CMS_API\\CMS_API\\CMS_API\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1318,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -33,43 +20,8 @@
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PermissionController.cs",
-              "DocumentMoniker": "C:\\Users\\Mounir\\Documents\\projects\\Sync\\C#\\CMS_API\\CMS_API\\Controllers\\Authorization\\PermissionController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Authorization\\PermissionController.cs",
-              "ToolTip": "C:\\Users\\Mounir\\Documents\\projects\\Sync\\C#\\CMS_API\\CMS_API\\Controllers\\Authorization\\PermissionController.cs",
-              "RelativeToolTip": "Controllers\\Authorization\\PermissionController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T11:37:33.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Mounir\\Documents\\projects\\Sync\\C#\\CMS_API\\CMS_API\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\Mounir\\Documents\\projects\\Sync\\C#\\CMS_API\\CMS_API\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T11:37:28.288Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RoleController.cs",
-              "DocumentMoniker": "C:\\Users\\Mounir\\Documents\\projects\\Sync\\C#\\CMS_API\\CMS_API\\Controllers\\Authorization\\RoleController.cs",
-              "RelativeDocumentMoniker": "Controllers\\Authorization\\RoleController.cs",
-              "ToolTip": "C:\\Users\\Mounir\\Documents\\projects\\Sync\\C#\\CMS_API\\CMS_API\\Controllers\\Authorization\\RoleController.cs",
-              "RelativeToolTip": "Controllers\\Authorization\\RoleController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T11:36:50.364Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }

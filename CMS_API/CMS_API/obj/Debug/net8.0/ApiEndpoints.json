@@ -954,6 +954,16 @@
   },
   {
     "ContainingType": "CMS_API.Controllers.Authentication.UserAuthenticationController",
+    "Method": "Ping",
+    "RelativePath": "api/UserAuthentication/ping",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authentication.UserAuthenticationController",
     "Method": "RefreshToken",
     "RelativePath": "api/UserAuthentication/RefreshToken",
     "HttpMethod": "POST",

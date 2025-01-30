@@ -24,8 +24,6 @@ namespace CMS_API_Core.FilterModels
 
             validations.IsTrueOrFalse(IsActive, "IsActive", "IsActive must be (true) or (false)")
                        .IsString(Name, "Name", "Name Is Not a String")
-                       .IsPhoneValid(Phone, "Phone", "Invalid Phone : ")
-                       .IsUsernameValid(UserName, "UserName", "Invalid username : ")
                        ;
 
 

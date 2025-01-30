@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6YmEwn5bDms=",
+  "dgSpecHash": "stmvVVdSepI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mounir\\Documents\\projects\\Sync\\C#\\CMS_API\\CMS_API_Core\\CMS_API_Core.csproj",
+  "projectFilePath": "C:\\Users\\Mounir\\Documents\\GitHub\\CMS_API\\CMS_API\\CMS_API_Core\\CMS_API_Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mounir\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
     "C:\\Users\\Mounir\\.nuget\\packages\\azure.identity\\1.13.1\\azure.identity.1.13.1.nupkg.sha512",

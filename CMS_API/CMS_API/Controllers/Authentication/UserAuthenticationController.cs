@@ -1,5 +1,6 @@
 ﻿using CMS_API_Application.Dto.Authentication;
 using CMS_API_Application.Interfaces.Servises.Authentication;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMS_API.Controllers.Authentication
@@ -10,6 +11,11 @@ namespace CMS_API.Controllers.Authentication
         ) : ControllerBase
     {
 
+        [HttpGet("ping")]
+        public ActionResult Ping()
+        {
+            return Ok("ping");
+        }
 
         [HttpPost("register")]
         public ActionResult RegisterUser(RegisterDto UserRequest)

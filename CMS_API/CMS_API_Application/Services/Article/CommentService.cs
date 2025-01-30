@@ -237,7 +237,7 @@ namespace CMS_API.Services.Article
             {
                 return new ApiResponse<object?>(
           data: null,
-          status: StatusCodes.Status400BadRequest,
+          status: StatusCodes.Status404NotFound,
           message: ["No Comment found with the given parameters."]);
             }
 

@@ -144,16 +144,16 @@ namespace CMS_API.Services.Authorization
 
                         return new ApiResponse<object?>(
                                    data: null,
-                                   status: StatusCodes.Status400BadRequest,
-                                   message: [" No Permission Name exist"]);
+                                   status: StatusCodes.Status404NotFound,
+                                   message: [$" No Permission Name {UserPermission} exist"]);
                     }
                     else if (UserPermission is not null && !_RolePermissionRepository.GetRolePermissionByRoleId(role.Id).Any(rp => rp.Permission.Name == UserPermission))
                     {
 
                         return new ApiResponse<object?>(
                                    data: null,
-                                   status: StatusCodes.Status400BadRequest,
-                                   message: [" Permission Name already dosen`t exist in the Role"]);
+                                   status: StatusCodes.Status404NotFound,
+                                   message: [$" Permission Name {UserPermission} already dosen`t exist in the Role"]);
                     }
                     else if (UserPermission is not null)
                     {

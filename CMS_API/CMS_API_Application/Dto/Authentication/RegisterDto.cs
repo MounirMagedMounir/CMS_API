@@ -30,7 +30,6 @@ namespace CMS_API_Application.Dto.Authentication
                        .IsUsernameValid(UserName, "UserName", "Invalid username : ")
                        .IsEmailValid(Email, "Email", "Invalid Email :")
                        .IsPasswordValid(Password, "Password", "Invalid Password : ")
-                       .IsPasswordValid(ConfirmPassword, "ConfirmPassword", "Invalid ConfirmPassword : ")
                        ;
 
 

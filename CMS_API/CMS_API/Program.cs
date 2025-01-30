@@ -60,6 +60,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddCors(options =>
 {
+
     options.AddPolicy("AllowBlazorClient", builder =>
     {
         builder.WithOrigins("https://localhost:7265")  // Specify the Blazor WebAssembly URL
@@ -68,6 +69,17 @@ builder.Services.AddCors(options =>
                .AllowCredentials();  // Allow credentials if necessary (for cookies, etc.)
     });
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200") // Add the Angular app's URL
+              .AllowAnyHeader() // Allow all headers
+              .AllowAnyMethod() // Allow GET, POST, PUT, DELETE, etc.
+              .AllowCredentials(); // Allow cookies or authorization headers
+    });
+});
+
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
     b => b.MigrationsAssembly("CMS_API_Infrastructure")));
@@ -106,7 +118,7 @@ builder.Services.AddScoped<ISecurityService, SecurityService>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -114,6 +126,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowAngularApp");
 app.UseCors("AllowBlazorClient");
 
 app.UseAuthentication();

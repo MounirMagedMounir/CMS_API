@@ -79,7 +79,7 @@ namespace CMS_API.Services.Authorization
 
                         return new ApiResponse<object?>(
                                    data: null,
-                                   status: StatusCodes.Status400BadRequest,
+                                   status: StatusCodes.Status404NotFound,
                                    message: [$" Permission Name : {permission.Name} dosen`t exist"]);
                     }
                 }
@@ -174,7 +174,7 @@ namespace CMS_API.Services.Authorization
 
                         return new ApiResponse<object?>(
                                       data: null,
-                                      status: StatusCodes.Status400BadRequest,
+                                      status: StatusCodes.Status404NotFound,
                                       message: [$"Permission Name: {permission.Name} doesn't exist."]);
                     }
                 }
@@ -210,7 +210,7 @@ namespace CMS_API.Services.Authorization
 
                 return new ApiResponse<object?>(
                    data: null,
-                   status: StatusCodes.Status400BadRequest,
+                   status: StatusCodes.Status404NotFound,
                    message: ["Role id dosen`t exist"]);
             }
 
@@ -240,7 +240,7 @@ namespace CMS_API.Services.Authorization
                     message.Add("Role id dosen`t exist");
                     return new ApiResponse<object?>(
                     data: null,
-                    status: StatusCodes.Status400BadRequest,
+                    status: StatusCodes.Status404NotFound,
                     message: message);
                 }
 
@@ -296,7 +296,7 @@ namespace CMS_API.Services.Authorization
             {
                 return new ApiResponse<object?>(
           data: null,
-          status: StatusCodes.Status400BadRequest,
+          status: StatusCodes.Status404NotFound,
           message: ["No Role found with the given parameters."]);
             }
 
@@ -323,7 +323,7 @@ namespace CMS_API.Services.Authorization
             {
                 return new ApiResponse<object?>(
                       data: null,
-                      status: StatusCodes.Status400BadRequest,
+                      status: StatusCodes.Status404NotFound,
                       message: [$" Role Id : {RoleId} dosen`t exist"]);
             }
 

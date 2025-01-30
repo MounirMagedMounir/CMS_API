@@ -19,7 +19,7 @@ namespace CMS_API_Infrastructure.Repository
 
         public User GetUserById(string userId)
         {
-            return _context.User.Include(u => u.Role).FirstOrDefault(u => u.Id == userId);
+            return _context.User.Include(u => u.Role).Include(u => u.LastUpdatedBy).Include(u => u.CreatedBy).FirstOrDefault(u => u.Id == userId);
         }
 
         public IEnumerable<User> GetUsers(UsersFilter? filterParameter, string? sortBy, string? sortOrder)
@@ -27,80 +27,85 @@ namespace CMS_API_Infrastructure.Repository
             var query = _context.User.Include(u => u.Role).Include(c => c.CreatedBy).Include(c => c.LastUpdatedBy).AsQueryable();
 
             // Apply filters from UsersFilter class
-            if (Guid.TryParse(filterParameter.Id, out Guid parsedId) && parsedId != Guid.Empty)
+            if (Guid.TryParse(filterParameter?.Id, out Guid parsedId) && parsedId != Guid.Empty)
             {
                 query = query.Where(u => u.Id == parsedId.ToString());
             }
 
-            if (!string.IsNullOrWhiteSpace(filterParameter.Name))
+            if (!string.IsNullOrWhiteSpace(filterParameter?.Name))
             {
                 query = query.Where(u => u.Name.Contains(filterParameter.Name));
             }
 
-            if (!string.IsNullOrWhiteSpace(filterParameter.Email))
+            if (!string.IsNullOrWhiteSpace(filterParameter?.Email))
             {
                 query = query.Where(u => u.Email.Contains(filterParameter.Email));
             }
 
-            if (!string.IsNullOrWhiteSpace(filterParameter.UserName))
+            if (!string.IsNullOrWhiteSpace(filterParameter?.UserName))
             {
                 query = query.Where(u => u.UserName.Contains(filterParameter.UserName));
             }
 
-            if (filterParameter.IsActive.HasValue)
-            {
-                query = query.Where(u => u.IsActive == filterParameter.IsActive.Value);
-            }
+            if (filterParameter?.IsActive != null)
+                if (filterParameter.IsActive.HasValue)
+                {
+                    query = query.Where(u => u.IsActive == filterParameter.IsActive.Value);
+                }
 
-            if (!string.IsNullOrWhiteSpace(filterParameter.Phone))
+            if (!string.IsNullOrWhiteSpace(filterParameter?.Phone))
             {
                 query = query.Where(u => u.Phone.Contains(filterParameter.Phone));
             }
 
-            if (!string.IsNullOrWhiteSpace(filterParameter.RoleName))
+            if (!string.IsNullOrWhiteSpace(filterParameter?.RoleName))
             {
                 query = query.Where(u => u.Role.Name.Contains(filterParameter.RoleName));
             }
 
-            if (Guid.TryParse(filterParameter.CreatedbyId, out Guid createdById) && createdById != Guid.Empty)
+            if (Guid.TryParse(filterParameter?.CreatedbyId, out Guid createdById) && createdById != Guid.Empty)
             {
                 query = query.Where(u => u.CreatedbyId == createdById.ToString());
             }
 
-            if (!string.IsNullOrWhiteSpace(filterParameter.CreatedbyName))
+            if (!string.IsNullOrWhiteSpace(filterParameter?.CreatedbyName))
             {
                 query = query.Where(c => c.CreatedBy.UserName.Contains(filterParameter.CreatedbyName));
             }
 
-            if (filterParameter.CreatedDateFrom.HasValue)
-            {
-                query = query.Where(u => u.CreatedDate.Date >= filterParameter.CreatedDateFrom.Value.Date);
-            }
+            if (filterParameter?.CreatedDateFrom != null)
+                if (filterParameter.CreatedDateFrom.HasValue)
+                {
+                    query = query.Where(u => u.CreatedDate.Date >= filterParameter.CreatedDateFrom.Value.Date);
+                }
 
-            if (filterParameter.CreatedDateTo.HasValue)
-            {
-                query = query.Where(u => u.CreatedDate.Date <= filterParameter.CreatedDateTo.Value.Date);
-            }
+            if (filterParameter?.CreatedDateTo != null)
+                if (filterParameter.CreatedDateTo.HasValue)
+                {
+                    query = query.Where(u => u.CreatedDate.Date <= filterParameter.CreatedDateTo.Value.Date);
+                }
 
-            if (Guid.TryParse(filterParameter.LastUpdatedbyId, out Guid lastUpdatedById) && lastUpdatedById != Guid.Empty)
+            if (Guid.TryParse(filterParameter?.LastUpdatedbyId, out Guid lastUpdatedById) && lastUpdatedById != Guid.Empty)
             {
                 query = query.Where(u => u.LastUpdatedbyId == lastUpdatedById.ToString());
             }
 
-            if (!string.IsNullOrWhiteSpace(filterParameter.LastUpdatedbyName))
+            if (!string.IsNullOrWhiteSpace(filterParameter?.LastUpdatedbyName))
             {
                 query = query.Where(c => c.LastUpdatedBy.UserName.Contains(filterParameter.LastUpdatedbyName));
             }
 
-            if (filterParameter.LastUpdatedDateFrom.HasValue)
-            {
-                query = query.Where(u => u.LastUpdatedDate.Date >= filterParameter.LastUpdatedDateFrom.Value.Date);
-            }
+            if (filterParameter?.LastUpdatedDateFrom != null)
+                if (filterParameter.LastUpdatedDateFrom.HasValue)
+                {
+                    query = query.Where(u => u.LastUpdatedDate.Date >= filterParameter.LastUpdatedDateFrom.Value.Date);
+                }
 
-            if (filterParameter.LastUpdatedDateTo.HasValue)
-            {
-                query = query.Where(u => u.LastUpdatedDate.Date <= filterParameter.LastUpdatedDateTo.Value.Date);
-            }
+            if (filterParameter?.LastUpdatedDateTo != null)
+                if (filterParameter.LastUpdatedDateTo.HasValue)
+                {
+                    query = query.Where(u => u.LastUpdatedDate.Date <= filterParameter.LastUpdatedDateTo.Value.Date);
+                }
 
             // Apply sorting based on sortBy and sortOrder
             var propertyInfo = typeof(User).GetProperty(sortBy, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
@@ -185,7 +190,7 @@ namespace CMS_API_Infrastructure.Repository
 
         public bool IsUserRoleAdmin(string userId)
         {
-            return _context.User.Include(u => u.Role).Any(u => u.Id == userId && u.Role.Name == "Admin" || u.Role.Name == "Super Admin");
+            return _context.User.Include(u => u.Role).Any(u => u.Id == userId && (u.Role.Name == "Admin" || u.Role.Name == "Super Admin"));
         }
     }
 }

@@ -27,13 +27,19 @@ namespace CMS_API.Services.Authentication
         {
 
             var validationErrors = UserRequest.Validation();
-            if (validationErrors.Count > 0)
+
+            if (validationErrors.Count > 0 || !UserRequest.Password.Equals(UserRequest.ConfirmPassword))
             {
+                var message = new List<string>();
+                message.AddRange(validationErrors.ToList());
+
+                if (!UserRequest.Password.Equals(UserRequest.ConfirmPassword))
+                    message.AddRange(["Password and ConfirmPassword dosen`t match", "make sure password and the Confirm Password match"]);
 
                 return new ApiResponse<object?>(
                         data: null,
                         status: StatusCodes.Status400BadRequest,
-                        message: validationErrors.ToList());
+                        message: message);
             }
 
 
@@ -51,14 +57,7 @@ namespace CMS_API.Services.Authentication
             };
 
 
-            if (!UserRequest.Password.Equals(UserRequest.ConfirmPassword))
-            {
 
-                return new ApiResponse<object?>(
-                        data: null,
-                        status: StatusCodes.Status400BadRequest,
-                        message: new List<string> { "Passwords dosen`t match", "make sure password and the Confirm Password match" });
-            }
 
 
             if (_userRepository.IsEmailExists(UserRequest.Email))
@@ -71,6 +70,7 @@ namespace CMS_API.Services.Authentication
 
 
             var VerificationCode = Guid.NewGuid().ToString().Substring(0, 6);
+            Console.WriteLine("VerificationCode " + VerificationCode);
 
             _cache.Set(NewUser.Email, new UserVarificationDto(VerificationCode, NewUser), new MemoryCacheEntryOptions
             {
@@ -108,6 +108,14 @@ namespace CMS_API.Services.Authentication
                           status: StatusCodes.Status404NotFound,
                           message: ["Email or Password is incorrect", "make sure you put the right email and password"]);
             }
+            if (!User.IsActive)
+            {
+                return new ApiResponse<object?>(
+                          data: null,
+                          status: StatusCodes.Status404NotFound,
+                          message: ["Email or Password is incorrect", "make sure you put the right email and password"]);
+            }
+
 
             var userSession = _SessionRepository.GetSessionByUserId(User.Id);
 
@@ -167,10 +175,10 @@ namespace CMS_API.Services.Authentication
             var validationErrors = Code.Validation();
             if (validationErrors.Count > 0)
             {
-                { }; return new ApiResponse<object?>(
-                   data: null,
-                   status: StatusCodes.Status400BadRequest,
-                   message: validationErrors.ToList());
+                return new ApiResponse<object?>(
+                  data: null,
+                  status: StatusCodes.Status400BadRequest,
+                  message: validationErrors.ToList());
             }
 
             if (_cache.Get(Code.Email) is not null)
@@ -232,7 +240,7 @@ namespace CMS_API.Services.Authentication
         public ApiResponse<object?> SignOut()
         {
 
-            var UserRequest = _httpContextAccessor.HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var UserRequest = authentication.GetBearerToken();
 
             var userSession = _SessionRepository.GetSessionByToken(UserRequest);
 
@@ -240,7 +248,7 @@ namespace CMS_API.Services.Authentication
             {
                 return new ApiResponse<object?>(
                             data: null,
-                            status: StatusCodes.Status400BadRequest,
+                            status: StatusCodes.Status404NotFound,
                             message: ["Token is Wrong"]);
             }
 
@@ -257,7 +265,7 @@ namespace CMS_API.Services.Authentication
         public ApiResponse<object?> RefreshToken(string UserRequest)
         {
 
-            var OldToken = _httpContextAccessor.HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            var OldToken = authentication.GetBearerToken();
 
             var userSession = _SessionRepository.GetSessionByToken(OldToken);
             var userRefreshToken = _RefreshTokenRepository.GetRefreshToken(UserRequest);
@@ -317,7 +325,7 @@ namespace CMS_API.Services.Authentication
                 return new ApiResponse<object?>(
                         data: null,
                         status: StatusCodes.Status401Unauthorized,
-                        message: ["Email is not Exist", "make sure you put the right email"]);
+                        message: ["Email dose not Exist", "make sure you put the right email"]);
             }
             var newPassword = Guid.NewGuid().ToString().Substring(0, 6);
             return emailSender.EmailMessage(UserRequest, "Forget Password", $"Hi {UserRequest} " +
