@@ -60,33 +60,16 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddCors(options =>
 {
-
-    options.AddPolicy("AllowBlazorClient", builder =>
+    options.AddPolicy("AllowAllClients", policy =>
     {
-        builder.WithOrigins("https://localhost:7265")  // Specify the Blazor WebAssembly URL
-               .AllowAnyHeader()
-               .AllowAnyMethod()
-               .AllowCredentials();  // Allow credentials if necessary (for cookies, etc.)
-    });
-});
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAngularApp", policy =>
-    {
-        policy.WithOrigins("http://localhost:4200") // Add the Angular app's URL
-              .AllowAnyHeader() // Allow all headers
-              .AllowAnyMethod() // Allow GET, POST, PUT, DELETE, etc.
-              .AllowCredentials(); // Allow cookies or authorization headers
-    });
-});
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowDloyedAngularApp", policy =>
-    {
-        policy.WithOrigins("https://mounirmagedmounir.github.io") // Add the Angular app's URL
-              .AllowAnyHeader() // Allow all headers
-              .AllowAnyMethod() // Allow GET, POST, PUT, DELETE, etc.
-              .AllowCredentials(); // Allow cookies or authorization headers
+        policy.WithOrigins(
+                "https://localhost:7265", // Blazor
+                "http://localhost:4200",  // Angular local
+                "https://mounirmagedmounir.github.io" // Deployed Angular
+              )
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
@@ -136,9 +119,8 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowDloyedAngularApp");
-app.UseCors("AllowAngularApp");
-app.UseCors("AllowBlazorClient");
+app.UseCors("AllowAllClients");
+
 
 app.UseAuthentication();
 app.UseAuthorization();
