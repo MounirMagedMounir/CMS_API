@@ -1,0 +1,15 @@
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\bin\Release\net8.0\CMS_API_Core.deps.json
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\bin\Release\net8.0\CMS_API_Core.runtimeconfig.json
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\bin\Release\net8.0\CMS_API_Core.dll
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\bin\Release\net8.0\CMS_API_Core.pdb
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\CMS_API_Core.csproj.AssemblyReference.cache
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\CMS_API_Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\CMS_API_Core.AssemblyInfoInputs.cache
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\CMS_API_Core.AssemblyInfo.cs
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\CMS_API_Core.csproj.CoreCompileInputs.cache
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\CMS_API_Core.sourcelink.json
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\CMS_API_Core.dll
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\refint\CMS_API_Core.dll
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\CMS_API_Core.pdb
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\CMS_API_Core.genruntimeconfig.cache
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API_Core\obj\Release\net8.0\ref\CMS_API_Core.dll

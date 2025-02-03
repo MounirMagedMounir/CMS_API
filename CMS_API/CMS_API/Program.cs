@@ -79,6 +79,16 @@ builder.Services.AddCors(options =>
               .AllowCredentials(); // Allow cookies or authorization headers
     });
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowDloyedAngularApp", policy =>
+    {
+        policy.WithOrigins("https://mounirmagedmounir.github.io") // Add the Angular app's URL
+              .AllowAnyHeader() // Allow all headers
+              .AllowAnyMethod() // Allow GET, POST, PUT, DELETE, etc.
+              .AllowCredentials(); // Allow cookies or authorization headers
+    });
+});
 
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -126,6 +136,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowDloyedAngularApp");
 app.UseCors("AllowAngularApp");
 app.UseCors("AllowBlazorClient");
 
