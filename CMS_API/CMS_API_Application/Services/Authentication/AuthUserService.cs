@@ -132,8 +132,6 @@ namespace CMS_API.Services.Authentication
                 SessionId = newSessionId,
                 CreatedDate = DateTime.Now,
                 Token = authentication.GenerateRefreshToken(),
-                ExpiresOn = DateTime.Now.AddDays(7),
-                RevokedOn = null,
             };
 
 
@@ -142,7 +140,6 @@ namespace CMS_API.Services.Authentication
             {
                 Id = newSessionId,
                 Token = authentication.GenerateToken(User),
-                ExpiryDate = DateTime.Now.AddMinutes(5),
                 Browser = _httpContextAccessor.HttpContext.Request.Headers["User-Agent"],
                 Device = System.Net.Dns.GetHostName(),
                 InActiveDate = DateTime.Now,
@@ -298,7 +295,6 @@ namespace CMS_API.Services.Authentication
 
             userSession.InActiveDate = DateTime.Now;
             userSession.Token = authentication.GenerateToken(userSession.User);
-            userSession.ExpiryDate = DateTime.Now.AddMinutes(5);
             userRefreshToken.Token = authentication.GenerateRefreshToken();
             userSession.LastUpdatedDate = DateTime.Now;
 

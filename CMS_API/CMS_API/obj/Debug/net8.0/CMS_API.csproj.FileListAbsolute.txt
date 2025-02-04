@@ -900,3 +900,4 @@ C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\refint
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\CMS_API.pdb
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\CMS_API.genruntimeconfig.cache
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\ref\CMS_API.dll
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -121,12 +121,14 @@ app.UseHttpsRedirection();
 
 app.UseCors("AllowAllClients");
 
+app.UseExceptionHandler();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseMiddleware<SessionTokenCheckMiddleware>();
 app.UseMiddleware<InActiveUpdateMiddleware>();
-app.UseExceptionHandler();
+
 app.MapControllers();
 
 app.Run();
