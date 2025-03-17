@@ -7,8 +7,8 @@ namespace CMS_API_Core.FilterModels
 
     public class PermissionsFilter : BaseFilterEntity
     {
-
         public string? Name { get; set; }
+        public virtual ICollection<RolePermissionFilter>? Roles { get; set; }
         public override List<string> Validation()
         {
 

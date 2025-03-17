@@ -130,7 +130,7 @@ namespace CMS_API_Infrastructure.Repository.Article
             var propertyInfo = typeof(ContentArticle).GetProperty(sortBy, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
             if (propertyInfo != null)
             {
-                var exprParameter = Expression.Parameter(typeof(ContentArticle), "u");
+                var exprParameter = Expression.Parameter(typeof(ContentArticle), "a");
                 var property = Expression.Property(exprParameter, propertyInfo);
                 var conversion = Expression.Convert(property, typeof(object));
                 var lambda = Expression.Lambda<Func<ContentArticle, object>>(conversion, exprParameter);

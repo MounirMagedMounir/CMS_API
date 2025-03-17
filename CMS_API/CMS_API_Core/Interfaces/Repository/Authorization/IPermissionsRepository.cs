@@ -1,9 +1,5 @@
 ﻿using CMS_API_Core.DomainModels.Authorization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CMS_API_Core.FilterModels;
 
 namespace CMS_API_Core.Interfaces.Repository.Authorization
 {
@@ -11,8 +7,9 @@ namespace CMS_API_Core.Interfaces.Repository.Authorization
     {
         bool IsPermissionExists(string permissionName);
         Permission GetPermissionById(string permissionId);
-        IEnumerable<Permission> GetPermissions();
+        IEnumerable<Permission> GetPermissions(PermissionsFilter filterParameter, string sortBy, string sortOrder);
         IEnumerable<Permission> GetPermissionsByName(string permissionName);
+        IEnumerable<Permission> GetPermissionsNames();
         Permission GetPermissionByName(string permissionName);
         IEnumerable<Permission> GetAllPermissions();
         void AddPermission(Permission permission);

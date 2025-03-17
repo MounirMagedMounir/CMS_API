@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using CMS_API_Application.Dto.Authorization;
 using CMS_API_Application.Interfaces.Servises.Authorization;
 using CMS_API_Core.helper.Response;
+using CMS_API_Core.FilterModels;
 
 namespace CMS_API.Services.Authorization
 {
@@ -167,10 +168,21 @@ namespace CMS_API.Services.Authorization
 
         }
 
-        public ApiResponse<object?> GetList(int skip, int take)
+        public ApiResponse<object?> GetList(PermissionsFilter? filterParameter, int skip = 1, int take = 3, string? sortBy = "Name", string? sortOrder = "asc")
         {
+            var validationErrors = filterParameter.Validation();
 
-            var Permissions = _PermissionRepository.GetPermissions().Select(permission => new GetPermissionDto
+            if (validationErrors.Count > 0)
+            {
+
+                return new ApiResponse<object?>(
+                    data: null,
+                    status: StatusCodes.Status400BadRequest,
+                    message: validationErrors);
+
+            }
+
+            var Permissions = _PermissionRepository.GetPermissions(filterParameter, sortBy, sortOrder).Select(permission => new GetPermissionDto
             {
                 Id = permission.Id,
                 Name = permission.Name,
@@ -194,12 +206,12 @@ namespace CMS_API.Services.Authorization
             }
 
             var permissionList = Permissions.Skip((skip - 1) * take).Take(take).ToList();
-            var metaData = new MetaData<object>(_page: skip, _PerPage: take, _TotalItems: totalRecords, _Filters: null);
+            var metaData = new MetaData<object>(_page: skip, _PerPage: take, _TotalItems: totalRecords, _Filters: filterParameter, _SortBy: sortBy, sortOrder);
 
             return new ApiResponse<object?>(
                     data: [permissionList, metaData],
                     status: StatusCodes.Status200OK,
-                    message: ["Users fetched successfully."])
+                    message: ["Permissions fetched successfully."])
             { };
 
         }
@@ -271,7 +283,35 @@ namespace CMS_API.Services.Authorization
             return new ApiResponse<object?>(
                     data: [permissionList, metaData],
                     status: StatusCodes.Status200OK,
-                    message: ["Users fetched successfully."])
+                    message: ["Permissions fetched successfully."])
+            { };
+
+        }
+
+        public ApiResponse<object?> GetNames()
+        {
+
+            var permission = _PermissionRepository.GetPermissionsNames().Select(permission => new GetPermissionNameDto
+            {
+                Id = permission.Id,
+                Name = permission.Name,
+            });
+            var totalRecords = permission.Count();
+
+            if (totalRecords == 0)
+            {
+                return new ApiResponse<object?>(
+          data: null,
+          status: StatusCodes.Status404NotFound,
+          message: [
+              "no Permission found"]);
+            }
+
+
+            return new ApiResponse<object?>(
+                    data: permission,
+                    status: StatusCodes.Status200OK,
+                    message: ["Permissions fetched successfully."])
             { };
 
         }

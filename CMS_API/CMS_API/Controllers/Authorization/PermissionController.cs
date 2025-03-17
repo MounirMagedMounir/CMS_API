@@ -1,6 +1,7 @@
 ﻿using CMS_API.Filters;
 using CMS_API_Application.Dto.Authorization;
 using CMS_API_Application.Interfaces.Servises.Authorization;
+using CMS_API_Core.FilterModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -49,10 +50,10 @@ namespace CMS_API.Controllers.Authorization
 
         [HttpGet("GetList")]
         [TypeFilter(typeof(PermissionFilterAttribute), Arguments = new object[] { "Permission_GetList" })]
-        public ActionResult GetList(int skip, int take)
+        public ActionResult GetList(PermissionsFilter filterParameter, int skip, int take, string sortBy, string sortOrder)
         {
 
-            return Ok(permissionService.GetList(skip, take));
+            return Ok(permissionService.GetList(filterParameter, skip, take, sortBy, sortOrder));
 
         }
 
@@ -71,6 +72,15 @@ namespace CMS_API.Controllers.Authorization
         {
 
             return Ok(permissionService.GetByName(PermissionName, skip, take));
+
+        }
+
+        [HttpGet("GetNames")]
+        [TypeFilter(typeof(PermissionFilterAttribute), Arguments = new object[] { "Permission_GetNames" })]
+        public ActionResult GetNames()
+        {
+
+            return Ok(permissionService.GetNames());
 
         }
     }

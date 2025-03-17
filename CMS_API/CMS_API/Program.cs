@@ -18,6 +18,7 @@ using CMS_API_Infrastructure.Repository;
 using CMS_API_Infrastructure.Repository.Article;
 using CMS_API_Infrastructure.Repository.Authentication;
 using CMS_API_Infrastructure.Repository.Authorization;
+using CMS_API_Infrastructure.Sercices;
 using CMS_API_Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -105,6 +106,7 @@ builder.Services.AddScoped<ITagArticleRepository, TagArticleRepository>();
 builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
 
 builder.Services.AddScoped<ISecurityService, SecurityService>();
+builder.Services.AddScoped<ISetControllerNameToPermissionName, SetControllerNameToPermissionName>();
 
 
 
