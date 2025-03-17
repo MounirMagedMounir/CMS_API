@@ -439,6 +439,11 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "filterParameter",
+        "Type": "CMS_API_Core.FilterModels.PermissionsFilter",
+        "IsRequired": true
+      },
+      {
         "Name": "skip",
         "Type": "System.Int32",
         "IsRequired": false
@@ -447,8 +452,28 @@
         "Name": "take",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "sortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "sortOrder",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CMS_API.Controllers.Authorization.PermissionController",
+    "Method": "GetNames",
+    "RelativePath": "api/Permission/GetNames",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

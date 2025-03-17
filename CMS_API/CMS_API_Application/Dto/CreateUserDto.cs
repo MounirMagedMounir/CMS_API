@@ -21,14 +21,12 @@ namespace CMS_API_Application.Dto.Admin
                        .IsNullOrEmpty(Email, "Email", "Email Is Requered")
                        .IsNullOrEmpty(Phone, "Phone", "Phone Is Requered")
                        .IsNullOrEmpty(UserName, "UserName", "UserName Is Requered")
-                       .IsNullOrEmpty(Password, "Password", "Password Is Requered")
 
                        .IsTrueOrFalse(IsActive, "IsActive", "IsActive must be (true) or (false)")
                        .IsString(Name, "Name", "Name Is Not a String")
                        .IsPhoneValid(Phone, "Phone", "Invalid Phone : ")
                        .IsUsernameValid(UserName, "UserName", "Invalid username : ")
                        .IsEmailValid(Email, "Email", "Invalid Email :")
-                       .IsPasswordValid(Password, "Password", "Invalid Password : ")
                        ;
 
 

@@ -894,10 +894,10 @@ C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\static
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CMS_API.props
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CMS_API.props
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\CMS_API.csproj.Up2Date
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\CMS_API.dll
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\refint\CMS_API.dll
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\CMS_API.pdb
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\CMS_API.genruntimeconfig.cache
 C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\ref\CMS_API.dll
-C:\Users\Mounir\Documents\GitHub\CMS_API\CMS_API\CMS_API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

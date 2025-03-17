@@ -1,7 +1,18 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Mounir\\Documents\\GitHub\\CMS_API\\CMS_API\\CMS_API\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8230D-ED45-44E2-80A5-31186F40BD3B}|..\\CMS_API_Infrastructure\\CMS_API_Infrastructure.csproj|c:\\users\\mounir\\documents\\github\\cms_api\\cms_api\\cms_api_infrastructure\\sercices\\setcontrollernametopermissionname.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8230D-ED45-44E2-80A5-31186F40BD3B}|..\\CMS_API_Infrastructure\\CMS_API_Infrastructure.csproj|c:\\users\\mounir\\documents\\github\\cms_api\\cms_api\\cms_api_infrastructure\\sercices\\securityservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C68759A-95C9-4780-8672-DEEE087AADC3}|CMS_API.csproj|c:\\users\\mounir\\documents\\github\\cms_api\\cms_api\\cms_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7C68759A-95C9-4780-8672-DEEE087AADC3}|CMS_API.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +20,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1318,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -17,11 +28,44 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SecurityService.cs",
+              "DocumentMoniker": "C:\\Users\\Mounir\\Documents\\GitHub\\CMS_API\\CMS_API\\CMS_API_Infrastructure\\Sercices\\SecurityService.cs",
+              "RelativeDocumentMoniker": "..\\CMS_API_Infrastructure\\Sercices\\SecurityService.cs",
+              "ToolTip": "C:\\Users\\Mounir\\Documents\\GitHub\\CMS_API\\CMS_API\\CMS_API_Infrastructure\\Sercices\\SecurityService.cs",
+              "RelativeToolTip": "..\\CMS_API_Infrastructure\\Sercices\\SecurityService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-17T09:52:55.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Mounir\\Documents\\GitHub\\CMS_API\\CMS_API\\CMS_API\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Mounir\\Documents\\GitHub\\CMS_API\\CMS_API\\CMS_API\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-17T09:32:58.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SetControllerNameToPermissionName.cs",
+              "DocumentMoniker": "C:\\Users\\Mounir\\Documents\\GitHub\\CMS_API\\CMS_API\\CMS_API_Infrastructure\\Sercices\\SetControllerNameToPermissionName.cs",
+              "RelativeDocumentMoniker": "..\\CMS_API_Infrastructure\\Sercices\\SetControllerNameToPermissionName.cs",
+              "ToolTip": "C:\\Users\\Mounir\\Documents\\GitHub\\CMS_API\\CMS_API\\CMS_API_Infrastructure\\Sercices\\SetControllerNameToPermissionName.cs",
+              "RelativeToolTip": "..\\CMS_API_Infrastructure\\Sercices\\SetControllerNameToPermissionName.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T12:41:14.761Z",
+              "EditorCaption": ""
             }
           ]
         }
